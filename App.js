@@ -8,17 +8,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Fontisto } from '@expo/vector-icons';
 
 import CocktailList from "./Components/CocktailList"
+import FavorisScreen from "./Components/Favoris"
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function FavorisScreen({}) {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Favoris</Text>
-        </View>
-    );
-}
 
 function CocktailsStackScreen() {
     return (
