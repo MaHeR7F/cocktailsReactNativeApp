@@ -1,13 +1,65 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator }  from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { Fontisto } from '@expo/vector-icons';
+
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function CocktailList({}) {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Cocktails</Text>
+        </View>
+    );
+}
+
+function FavorisScreen({}) {
+    return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text>Favoris</Text>
+        </View>
+    );
+}
+
+function CocktailsStackScreen() {
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="CocktailList" component={CocktailList} options={{ title: 'Cocktails' }} />
+        </Stack.Navigator>
   );
+}
+
+
+export default function App() {
+    return (
+        <View style={styles.container}>
+            <StatusBar style="auto" />
+            <NavigationContainer>
+                <Tab.Navigator
+                    initialRouteName={"Cocktails"}
+                >
+                    <Tab.Screen name="Cocktails" component={CocktailsStackScreen} options={{
+                        headerShown: false, tabBarIcon:({ color, size}) => (
+                            <Fontisto name="cocktail" size={size} color={color} />
+                        )}
+                    }
+                    />
+                    <Tab.Screen name="Favoris" component={FavorisScreen} options={{
+                        tabBarIcon:({ color, size}) => (
+                            <Fontisto name="Favoris" size={size} color={color} />
+                        )}
+                    }
+                    />
+                </Tab.Navigator>
+            </NavigationContainer>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
