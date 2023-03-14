@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Fontisto } from '@expo/vector-icons';
 
 import CocktailList from "./Components/CocktailList"
+import CocktailDetails from "./Components/CocktailList"
 import FavorisScreen from "./Components/Favoris"
 
 const Stack = createStackNavigator();
@@ -18,6 +19,7 @@ function CocktailsStackScreen() {
     return (
         <Stack.Navigator>
             <Stack.Screen name="CocktailList" component={CocktailList} options={{ title: 'Cocktails' }} />
+            <Stack.Screen name="CocktailDetails" component={CocktailDetails} options={{ title: 'Détails' }} />
         </Stack.Navigator>
   );
 }
