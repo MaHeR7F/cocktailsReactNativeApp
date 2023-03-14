@@ -48,6 +48,8 @@ export default function CocktailList({}) {
                     data={cocktails}
                     keyExtractor={(item) => item.idDrink}
                     numColumns={2}
+                    onEndReached={getAllCocktails}
+                    onEndReachedThreshold={1}
                     renderItem = {({ item }) => (
 
                         <TouchableOpacity onPress={() => navigation.navigate("CocktailDetails") }>
