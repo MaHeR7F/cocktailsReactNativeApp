@@ -6,7 +6,7 @@ export default function FavorisScreen({}) {
         <View>
             <StatusBar style="auto" />
             <View style={styles.container}>
-                <Text>Favoris</Text>
+                <Text style={{paddingTop:'90%'}}>Aucun favoris enregistré</Text>
             </View>
         </View>
     );
@@ -15,7 +15,6 @@ export default function FavorisScreen({}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },

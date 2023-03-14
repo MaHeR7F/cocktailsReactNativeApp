@@ -52,7 +52,8 @@ export default function CocktailList({}) {
                     onEndReachedThreshold={1}
                     renderItem = {({ item }) => (
 
-                        <TouchableOpacity onPress={() => navigation.navigate("CocktailDetails") }>
+                        <TouchableOpacity onPress={() => {
+                            navigation.navigate("CocktailDetails", {id: item.idDrink} )}}>
                             <View>
                                 <Image source={{ uri: item.strDrinkThumb }} style={styles.image} />
                                 <Text>{ item.strDrink }</Text>
